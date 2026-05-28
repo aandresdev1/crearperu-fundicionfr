@@ -7,7 +7,7 @@
 
 $fr_footer_about   = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor tan ut labore.';
 $fr_footer_contact = [
-    'address' => 'Calless Los Productores 161, Urbanización Pro Industrial San Martín de Porres Lima 31 - Perú',
+    'address' => 'CalleS Los Productores 161, Urbanización Pro Industrial San Martín de Porres Lima 31 - Perú',
     'email'   => 'funrios@funrios.pe',
 ];
 $fr_footer_cert = [
