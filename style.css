@@ -1,0 +1,233 @@
+/*
+Theme Name: Funrios
+Theme URI: https://fundicionfr.local/
+Author: Fundición FR
+Author URI: https://fundicionfr.local/
+Description: Tema personalizado para Fundición FR. Carga elementos WPBakery propios desde inc/vc-elements/.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: funrios
+*/
+
+:root {
+    --fr-red: #e21f26;
+    --fr-red-dark: #b81a20;
+    --fr-dark: #1a1a1a;
+    --fr-dark-2: #232323;
+    --fr-gray-100: #f5f5f5;
+    --fr-gray-200: #ececec;
+    --fr-gray-500: #888;
+    --fr-text: #2b2b2b;
+    --fr-white: #ffffff;
+    --fr-container: 1200px;
+    --fr-font: "Montserrat", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+    margin: 0;
+    font-family: var(--fr-font);
+    color: var(--fr-text);
+    line-height: 1.55;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    animation: fr-page-in .35s ease-out both;
+}
+body.is-leaving {
+    opacity: 0;
+    transition: opacity .25s ease;
+    animation: none;
+}
+@keyframes fr-page-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    body { animation: none; }
+    body.is-leaving { transition: none; opacity: 1; }
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--fr-red); text-decoration: none; }
+a:hover { color: var(--fr-red-dark); }
+
+.fr-container {
+    max-width: var(--fr-container);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== Header ===== */
+.fr-site-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 18px 0;
+}
+.fr-site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+.fr-site-header__logo img { max-height: 38px; width: auto; }
+.fr-site-header__nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 28px;
+}
+.fr-site-header__nav a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .03em;
+    text-transform: none;
+    transition: color .2s;
+}
+.fr-site-header__nav a:hover,
+.fr-site-header__nav .current-menu-item > a { color: var(--fr-red); }
+
+.fr-burger {
+    display: none;
+    background: none;
+    border: 0;
+    width: 36px; height: 36px;
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+}
+.fr-burger span {
+    display: block;
+    width: 22px; height: 2px;
+    background: #fff;
+    margin: 5px auto;
+}
+
+/* ===== Social rail (fijo a la derecha) ===== */
+.fr-social-rail {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 60;
+}
+.fr-social-rail a {
+    width: 36px; height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .55);
+    color: #fff;
+    transition: background .2s, color .2s;
+}
+.fr-social-rail a:hover { background: var(--fr-red); color: #fff; }
+.fr-social-rail svg { width: 16px; height: 16px; fill: currentColor; }
+
+/* ===== Footer ===== */
+.fr-site-footer { background: var(--fr-dark); color: #c7c7c7; }
+.fr-site-footer__top {
+    padding: 56px 0 40px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1.2fr .9fr;
+    gap: 40px;
+}
+.fr-site-footer__col h4 {
+    color: var(--fr-red);
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 18px;
+    letter-spacing: .03em;
+}
+.fr-site-footer__col p { margin: 0; font-size: 13px; line-height: 1.7; color: #a8a8a8; }
+.fr-site-footer__col ul { list-style: none; margin: 0; padding: 0; }
+.fr-site-footer__col ul li { margin-bottom: 8px; }
+.fr-site-footer__col ul a { color: #c7c7c7; font-size: 13px; }
+.fr-site-footer__col ul a:hover { color: #fff; }
+
+.fr-site-footer__logo img { max-height: 38px; margin-bottom: 18px; }
+
+.fr-site-footer__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: #c7c7c7;
+}
+.fr-site-footer__contact-item svg {
+    width: 14px; height: 14px;
+    fill: var(--fr-red);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.fr-site-footer__cert img { max-width: 140px; margin-bottom: 8px; }
+
+.fr-site-footer__bottom {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding: 16px 0;
+    font-size: 12px;
+    color: #8a8a8a;
+}
+.fr-site-footer__bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.fr-site-footer__bottom a { color: #c7c7c7; }
+.fr-site-footer__bottom a:hover { color: #fff; }
+
+/* ===== Botones reutilizables ===== */
+.fr-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s;
+    text-decoration: none;
+}
+.fr-btn--red { background: var(--fr-red); color: #fff; }
+.fr-btn--red:hover { background: var(--fr-red-dark); color: #fff; }
+.fr-btn--outline-light { background: transparent; color: #fff; border-color: #fff; }
+.fr-btn--outline-light:hover { background: #fff; color: var(--fr-dark); }
+.fr-btn--outline-dark { background: transparent; color: var(--fr-dark); border-color: var(--fr-dark); }
+.fr-btn--outline-dark:hover { background: var(--fr-dark); color: #fff; }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .fr-site-footer__top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+    .fr-burger { display: block; }
+    .fr-site-header__nav {
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(0,0,0,.92);
+        padding: 18px 20px;
+        display: none;
+    }
+    .fr-site-header__nav.is-open { display: block; }
+    .fr-site-header__nav ul { flex-direction: column; gap: 14px; }
+    .fr-social-rail { display: none; }
+}
+@media (max-width: 560px) {
+    .fr-site-footer__top { grid-template-columns: 1fr; gap: 32px; }
+}

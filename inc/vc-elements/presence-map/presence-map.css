@@ -1,0 +1,64 @@
+.fr-presence {
+    background: transparent;
+    color: #e5e5e5;
+    padding: 70px 0;
+}
+.fr-presence,
+.fr-presence * { box-sizing: border-box; }
+
+.fr-presence__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 40px;
+    align-items: center;
+}
+.fr-presence .fr-presence__eyebrow {
+    color: var(--fr-red);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+}
+.fr-presence .fr-presence__title {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0 0 18px;
+    line-height: 1.25;
+}
+.fr-presence .fr-presence__paragraph {
+    color: #b8b8b8;
+    font-size: 14px;
+    line-height: 1.75;
+    margin: 0 0 18px;
+    max-width: 420px;
+}
+.fr-presence .fr-presence__countries {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+}
+.fr-presence .fr-presence__countries li {
+    font-size: 13px;
+    color: #fff;
+    position: relative;
+    padding-left: 14px;
+    line-height: 1.6;
+}
+.fr-presence .fr-presence__countries li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 8px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--fr-red);
+}
+.fr-presence__map img { width: 100%; height: auto; display: block; }
+
+@media (max-width: 900px) {
+    .fr-presence__inner { grid-template-columns: 1fr; }
+}

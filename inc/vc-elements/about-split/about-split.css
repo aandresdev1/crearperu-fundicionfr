@@ -1,0 +1,82 @@
+.fr-about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: transparent;
+    color: #e5e5e5;
+    align-items: stretch;
+}
+.fr-about-split__media {
+    position: relative;
+    background-color: transparent;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+}
+.fr-about-split__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+.fr-about-split__overlay-logo {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 64px;
+    height: auto;
+    opacity: .95;
+    z-index: 2;
+}
+.fr-about-split__content {
+    display: flex;
+    align-items: center;
+    padding: 60px 8% 60px 6%;
+    background: transparent;
+}
+.fr-about-split__inner { max-width: 520px; }
+.fr-about-split__eyebrow {
+    color: var(--fr-red);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+}
+.fr-about-split__title {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0 0 22px;
+    line-height: 1.25;
+}
+.fr-about-split__text {
+    color: #c7c7c7;
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 26px;
+}
+.fr-about-split__text p { margin: 0 0 14px; }
+.fr-about-split__btn { padding: 11px 28px; }
+
+.fr-about-split--reverse .fr-about-split__media { grid-column: 2; grid-row: 1; }
+.fr-about-split--reverse .fr-about-split__content { grid-column: 1; grid-row: 1; padding: 60px 6% 60px 8%; }
+
+.fr-about-split--light { background: transparent; color: var(--fr-text); }
+.fr-about-split--light .fr-about-split__content { background: transparent; }
+.fr-about-split--light .fr-about-split__title { color: var(--fr-dark); }
+.fr-about-split--light .fr-about-split__text { color: var(--fr-text); }
+
+/* Variante contenida: bordes redondeados */
+.fr-about-split--contained {
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+@media (max-width: 900px) {
+    .fr-about-split,
+    .fr-about-split--reverse { grid-template-columns: 1fr; }
+    .fr-about-split__media,
+    .fr-about-split--reverse .fr-about-split__media { grid-column: 1; grid-row: 1; }
+    .fr-about-split__content,
+    .fr-about-split--reverse .fr-about-split__content { padding: 50px 24px; grid-column: 1; grid-row: 2; }
+}

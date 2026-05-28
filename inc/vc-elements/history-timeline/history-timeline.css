@@ -1,0 +1,86 @@
+.fr-history {
+    background: transparent;
+    color: #e5e5e5;
+    padding: 70px 0 80px;
+}
+.fr-history__title {
+    text-align: center;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 50px;
+}
+
+.fr-history__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--fr-history-cols, 4), 1fr);
+    gap: 0;
+}
+
+.fr-history__item {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    padding: 0 26px;
+    position: relative;
+    min-height: 360px;
+    justify-content: space-between;
+}
+
+.fr-history__item + .fr-history__item::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 8%; bottom: 8%;
+    width: 1px;
+    background: rgba(255, 255, 255, .15);
+}
+
+/* Patrón zigzag: items impares texto-arriba/imagen-abajo,
+   items pares imagen-arriba/texto-abajo. */
+.fr-history__item:nth-child(even) { flex-direction: column-reverse; }
+
+.fr-history__copy { padding: 4px 0; }
+.fr-history .fr-history__year {
+    display: inline-block;
+    color: var(--fr-red);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 14px;
+    letter-spacing: -.01em;
+}
+.fr-history .fr-history__text {
+    color: #bdbdbd;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.fr-history__img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-size: cover;
+    background-position: center;
+    background-color: #111;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+    .fr-history__grid { grid-template-columns: repeat(2, 1fr); }
+    /* Reiniciamos el zigzag en 2 columnas para evitar saltos raros */
+    .fr-history__item,
+    .fr-history__item:nth-child(even) { flex-direction: column; }
+    .fr-history__item { min-height: 0; padding: 24px 18px; }
+    /* Reubicamos el separador para 2 columnas */
+    .fr-history__item + .fr-history__item::before { display: none; }
+    .fr-history__item:nth-child(odd) + .fr-history__item::before {
+        display: block;
+        left: 0; top: 12%; bottom: 12%;
+    }
+}
+@media (max-width: 540px) {
+    .fr-history__grid { grid-template-columns: 1fr; }
+    .fr-history__item + .fr-history__item::before { display: none; }
+    .fr-history__item { border-top: 1px solid rgba(255,255,255,.12); }
+}
