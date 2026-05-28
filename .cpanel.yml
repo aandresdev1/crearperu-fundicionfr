@@ -3,7 +3,7 @@ deployment:
   tasks:
     # Reemplaza USUARIO por tu usuario de cPanel.
     # DEPLOYPATH debe terminar en / y apuntar a la carpeta del tema en el servidor.
-    - export DEPLOYPATH=/home/fundicionfr.crearperu.com/wp-content/themes/funrios-theme/
+    - export DEPLOYPATH=/home1/creaperu/fundicionfr.crearperu.com/wp-content/themes/funrios-theme
     - /bin/mkdir -p $DEPLOYPATH
     # Copia recursivamente TODO el contenido del repo al destino (incluye archivos ocultos).
     # Excluye .git y el propio .cpanel.yml para no ensuciar el tema.
